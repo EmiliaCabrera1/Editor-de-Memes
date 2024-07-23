@@ -6,6 +6,12 @@
     <title>Editor de memes</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
@@ -29,10 +35,10 @@
       <section class="main-green">
         <div class="main-img">
           <h2>TOP TEXT</h2>
-          <img src="" alt="" srcset="" class="meme-img" />
+          <img src="" alt="" srcset="" class="meme-img" id="meme" />
           <h2>BOTTOM TEXT</h2>
         </div>
-        <button class="descargar-button">
+        <button class="button-descargar">
           <img src="./iconos/des.png" alt="Icono descargar" />
           Descargar meme
         </button>
@@ -42,13 +48,13 @@
           <h3>Imagen</h3>
           <div>
             <h4>URL</h4>
-            <input type="text" id="URL" name="URL" required />
+            <input type="text" id="url" name="url" required />
           </div>
           <div>
             <h4>FONDO</h4>
             <div id="fondo-div">
               <input type="color" id="color" name="color" />
-              <select name="fondo" id="fondo">
+              <select name="fondo" id="fondo" class="select">
                 <option value="ninguno">Ninguno</option>
                 <option value="aclarar">Aclara</option>
                 <option value="oscurecer">Oscurecer</option>
@@ -63,6 +69,7 @@
               <label for="brillo">
                 BRILLO
                 <input
+                  class="range"
                   type="range"
                   id="brillo"
                   step="0.1"
@@ -75,6 +82,7 @@
               <label for="opacidad">
                 OPACIDAD
                 <input
+                  class="range"
                   type="range"
                   id="opacidad"
                   step="0.1"
@@ -87,6 +95,7 @@
               <label for="contraste">
                 CONTRASTE
                 <input
+                  class="range"
                   type="range"
                   id="contraste"
                   step="1%"
@@ -99,6 +108,7 @@
               <label for="desenfoque">
                 DESENFOQUE
                 <input
+                  class="range"
                   type="range"
                   id="desenfoque"
                   step="0.1px"
@@ -111,6 +121,7 @@
               <label for="escalaDeGrises">
                 ESCALA DE GRISES
                 <input
+                  class="range"
                   type="range"
                   id="Escala-de-grises"
                   step="1%"
@@ -123,6 +134,7 @@
               <label for="sepia">
                 SEPIA
                 <input
+                  class="range"
                   type="range"
                   id="sepia"
                   step="1%"
@@ -135,6 +147,7 @@
               <label for="hue">
                 HUE
                 <input
+                  class="range"
                   type="range"
                   id="hue"
                   step="1deg"
@@ -147,6 +160,7 @@
               <label for="saturacion">
                 SATURACION
                 <input
+                  class="range"
                   type="range"
                   id="saturacion"
                   step="10%"
@@ -159,6 +173,7 @@
               <label for="negativo">
                 NEGATIVO
                 <input
+                  class="range"
                   type="range"
                   id="negativo"
                   step="0.1"
@@ -170,34 +185,49 @@
             </div>
           </div>
         </section>
-        <section id="section-text">
-          <h3>TEXTO</h3>
+        <section id="section-text" class="hidden">
+          <h3>Texto</h3>
 
-          <label for="superior"
+          <label for="texto-superior"
             >SUPERIOR
-            <input type="text" placeholder="TOP TEXT" />
+            <input
+              type="text"
+              placeholder="TOP TEXT"
+              name="texto-superior"
+              id="texto-superior"
+            />
+          </label>
+          <label for="sin-texto-superior" class="checkbox" id="checkbox">
             <input
               type="checkbox"
-              name="SinTextoSuperior"
-              id="SinTextoSuperior"
+              name="sin-texto-superior"
+              id="sin-texto-superior"
             />
             Sin texto superior
           </label>
 
-          <label for="inferior"
+          <label for="texto-inferior" id="checkbox"
             >INFERIOR
-            <input type="text" placeholder="BOTTOM TEXT" />
+            <input
+              type="text"
+              placeholder="BOTTOM TEXT"
+              name="texto-inferior"
+              id="texto-inferior"
+            />
+          </label>
+          <label for="sin-texto-inferior" class="checkbox">
             <input
               type="checkbox"
-              name="sinTextoInferior"
-              id="sinTextoInferior"
+              name="sin-texto-inferior"
+              id="sin-texto-inferior"
             />
             Sin texto inferior
           </label>
           <label for="fuente">
-            Fuente
+            FUENTE
+
             <select name="fuente" id="fuente">
-              <option value="arial">ArialL</option>
+              <option value="arial">Arial</option>
               <option value="arialBlack">Arial Black</option>
               <option value="americanTypewriter">American Typewriter</option>
               <option value="andaleMono">Andale Mono</option>
@@ -209,34 +239,37 @@
             </select>
             <input type="number" />
           </label>
-          <div>
+          <div class="div50">
             <label for="color">
               COLOR
               <input type="color" />
             </label>
             <label for="fondo"
-              >Fondo
+              >FONDO
               <input type="color" />
             </label>
-            <input type="checkbox" />Fondo transparente
-            <label for="contorno">
-              CONTORNO
-              <input type="text" placeholder=" Ninguno" />
-              <input type="text" placeholder="Claro" />
-              <input type="text" placeholder="Oscuro" />
-            </label>
-            <label for="espaciado">
-              ESPACIADO
-              <input type="number" />
-            </label>
-            <label for="interlineado">
-              INTERLINEADO
-              <input type="number" />
-            </label>
           </div>
+          <label class="checkbox">
+            <input type="checkbox" />
+            Fondo transparente
+          </label>
+          <label for="contorno">
+            CONTORNO
+            <input type="text" placeholder=" Ninguno" />
+            <input type="text" placeholder="Claro" />
+            <input type="text" placeholder="Oscuro" />
+          </label>
+          <label for="espaciado">
+            ESPACIADO
+            <input type="number" />
+          </label>
+          <label for="interlineado">
+            INTERLINEADO
+            <input type="number" />
+          </label>
         </section>
       </aside>
     </main>
-    <script src="add.js"></script>
+    <script src="./js/add.js"></script>
   </body>
 </html>
