@@ -12,11 +12,20 @@ manrope {
   font-family: Manrope;
 }
 
-:root {
-  --ligth-color: #d9d9d9;
-  --dark-color: #a6b5b5;
+.dark-mode {
+  --ligth-color: #1f4129;
+  --dark-color: #5c6962;
+  --color: #ffff;
 }
 
+.ligth-mode {
+  --ligth-color: #d9d9d9;
+  --dark-color: #a6b5b5;
+  --color: #000000;
+}
+body {
+  color: var(--color);
+}
 header {
   background-color: var(--ligth-color);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -46,14 +55,15 @@ h1 {
   border: none;
   padding: 0;
   margin-right: 10px;
-  color: #000;
   font-size: 18px;
   gap: 4px;
+  color: var(--color);
 }
 .button-header img {
   margin-right: 4px;
   width: 24px;
   height: 24px;
+  color: var(--color);
 }
 
 .button-header h4 {
@@ -99,26 +109,34 @@ aside label {
 }
 
 aside input {
-  background: #a6b5b5;
+  background: var(--dark-color);
   margin-top: 6px;
   margin-bottom: 6px;
   padding: 6px;
   border: none;
   border-radius: 4px;
+  color: var(--color);
 }
 
-aside select {
-  background: #a6b5b5;
-  height: 27px;
-  margin-top: 6px;
-  margin-bottom: 6px;
-  padding: 6px;
-  border: none;
+.fondo-div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
+
 .select {
   font-size: 12px;
   border-radius: 4px;
-  padding: 6px;
+  background: var(--dark-color);
+  height: 27px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  border: none;
+  width: 100%;
+  color: var(--color);
+}
+.color {
+  width: 100%;
 }
 
 .checkbox {
@@ -136,6 +154,32 @@ aside select {
 .range {
   margin: 0%;
 }
+.parrafo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.texto-button {
+  background: var(--dark-color);
+  border: none;
+  border-radius: 4px;
+  width: 27px;
+  height: 27px;
+  color: var(--color);
+}
+
+.texto-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.reestablecer {
+  background: var(--dark-color);
+  border: none;
+  border-radius: 4px;
+  padding: 6px;
+  color: var(--color);
+}
 
 .main-green {
   flex-grow: 1;
@@ -145,13 +189,13 @@ aside select {
   align-items: center;
 }
 
-.main-img {
+.meme {
   margin: 5% 0px;
   display: flex;
   flex-flow: column nowrap;
   padding: 41px 0px;
   border-radius: 20px;
-  background: #d9d9d9;
+  background: var(--ligth-color);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   width: 650px;
   height: 80%;
@@ -175,12 +219,18 @@ aside select {
   border-radius: 8px;
   background: #2c9236;
   align-content: center;
-  color: #d9d9d9;
+  color: var(--ligth-color);
   font-size: 20px;
   border: none;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: var(--color);
 }
-
+::placeholder {
+  color: var(--color);
+}
+.invert-image {
+  filter: invert(100%);
+}
 .hidden {
   display: none;
 }

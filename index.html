@@ -12,33 +12,55 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
+      integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"
+      integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ=="
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body>
+  <body class="ligth-mode" id="body">
     <header>
       <h1>Generador de memes</h1>
       <div class="div-button-header">
         <button class="button-header" id="button-header-imagen">
-          <img src="./iconos/img.png" alt="Icono Imagen" />
+          <img
+            src="./iconos/img.png"
+            alt="Icono Imagen"
+            id="img-button-heder-img"
+          />
           <h4>Imagen</h4>
         </button>
         <button class="button-header" id="button-header-texto">
-          <img src="./iconos/text.png" alt="Icono Texto" />
+          <img
+            src="./iconos/text.png"
+            alt="Icono Texto"
+            id="img-button-heder-text"
+          />
           <h4>Texto</h4>
         </button>
-        <button class="button-header" id="button-header-mood">
-          <img src="./iconos/mood.png" alt="Icono Modo Oscuro" />
+        <button class="button-header button-mode" id="dark-mode">
+          <img src="./iconos/mood.png" alt="Icono Modo " />
           <h4>Modo oscuro</h4>
+        </button>
+        <button class="button-header hidden button-mode" id="ligth-mode">
+          <img src="./iconos/mood-blanco.png" alt="Icono Modo " />
+          <h4>Modo claro</h4>
         </button>
       </div>
     </header>
     <main>
       <section class="main-green">
-        <div class="main-img">
-          <h2>TOP TEXT</h2>
-          <img src="" alt="" srcset="" class="meme-img" id="meme" />
-          <h2>BOTTOM TEXT</h2>
+        <div class="meme" id="meme">
+          <h2 class="top-text" id="top-text">TOP TEXT</h2>
+          <img src="" alt="" srcset="" class="meme-img" id="meme-img" />
+          <h2 class="bottom-text" id="bottom-text">BOTTOM TEXT</h2>
         </div>
-        <button class="button-descargar">
+        <button class="button-descargar" id="button-descargar">
           <img src="./iconos/des.png" alt="Icono descargar" />
           Descargar meme
         </button>
@@ -52,8 +74,8 @@
           </div>
           <div>
             <h4>FONDO</h4>
-            <div id="fondo-div">
-              <input type="color" id="color" name="color" />
+            <div class="fondo-div">
+              <input type="color" id="color" name="color" class="color" />
               <select name="fondo" id="fondo" class="select">
                 <option value="ninguno">Ninguno</option>
                 <option value="aclarar">Aclara</option>
@@ -184,6 +206,9 @@
               </label>
             </div>
           </div>
+          <button class="reestablecer" id="reestablecer">
+            REESTABLECER FILTROS
+          </button>
         </section>
         <section id="section-text" class="hidden">
           <h3>Texto</h3>
@@ -226,7 +251,7 @@
           <label for="fuente">
             FUENTE
 
-            <select name="fuente" id="fuente">
+            <select name="fuente" id="fuente" class="select">
               <option value="arial">Arial</option>
               <option value="arialBlack">Arial Black</option>
               <option value="americanTypewriter">American Typewriter</option>
@@ -237,7 +262,27 @@
               <option value="verdana">Verdana</option>
               <option value="timesNewRoman">Times New Roman</option>
             </select>
-            <input type="number" />
+            <div class="parrafo">
+              <input
+                type="number"
+                type="number"
+                class="number"
+                id="fuente"
+                step="1"
+                min="12"
+                max="100"
+                value="40"
+              />
+              <button class="texto-button" id="izquierda-texto">
+                <img src="./iconos/izquierda-blanco.png" alt="izquierda-ico" />
+              </button>
+              <button class="texto-button" id="centro-texto">
+                <img src="./iconos/centro-blanco.png" alt="centro-ico" />
+              </button>
+              <button class="texto-button" id="derecha-texto">
+                <img src="./iconos/derecha-blanco.png" alt="derecha-ico" />
+              </button>
+            </div>
           </label>
           <div class="div50">
             <label for="color">
@@ -261,11 +306,28 @@
           </label>
           <label for="espaciado">
             ESPACIADO
-            <input type="number" />
+            <input
+              type="number"
+              type="number"
+              class="number"
+              id="espaciado"
+              step="1"
+              min="10"
+              max="50"
+              value="35"
+            />
           </label>
           <label for="interlineado">
             INTERLINEADO
-            <input type="number" />
+            <input
+              type="number"
+              class="number"
+              id="interlineado"
+              step="0.2"
+              min="0.8"
+              max="2.4"
+              value="1.2"
+            />
           </label>
         </section>
       </aside>
