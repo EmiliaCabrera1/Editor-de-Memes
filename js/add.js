@@ -55,17 +55,20 @@ const contornoClaro = $("contorno-claro");
 const contornoOscuro = $("contorno-oscuro");
 const espaciadoText = $("espaciado");
 const interlineadoText = $("interlineado");
+const descarga = $("button-descargar");
+const meme = $("meme");
+const aside = $("aside");
 
 textButton.onclick = () => {
   imgSection.classList.add("hidden");
   textSection.classList.remove("hidden");
-  $("aside").style.display = "block";
+  aside.style.display = "flex";
 };
 
 imgButton.onclick = () => {
   imgSection.classList.remove("hidden");
   textSection.classList.add("hidden");
-  $("aside").style.display = "block";
+  aside.style.display = "flex";
 };
 
 function darkModeFuncion() {
@@ -264,10 +267,11 @@ function aplicarInterlineado() {
 }
 interlineadoText.addEventListener("input", aplicarInterlineado);
 
-/* DESCARGAR MEME */
+function cerrarAside() {
+  aside.style.display = "none";
+}
 
-const descarga = document.getElementById("button-descargar");
-const meme = document.getElementById("meme");
+cerrarButton.addEventListener("click", cerrarAside);
 
 function descargarMeme() {
   domtoimage.toBlob(meme).then(function (blob) {
