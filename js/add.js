@@ -12,6 +12,7 @@ const body = $("body");
 const imgHeader = $("img-button-heder-img");
 const textHeader = $("img-button-heder-text");
 const desButton = $("img-button-des");
+const cerrarButton = $("cerrar-button");
 const memeBackgroundColor = $("color-background-meme");
 const memeBackgroundEfecto = $("efecto-background-meme");
 const filtroBrillo = $("brillo");
@@ -35,15 +36,36 @@ const valoresPredeterminados = {
   negativo: 0,
 };
 const reestablecerFiltros = $("reestablecerButton");
+const topText = $("top-text");
+const bottomText = $("bottom-text");
+const inputTopText = $("texto-superior");
+const inputBottomText = $("texto-inferior");
+const sinTextoSuperiorCheck = $("sin-texto-superior");
+const sinTextoInferiorCheck = $("sin-texto-inferior");
+const selectFuente = $("fuente");
+const fuenteSize = $("fuente-size");
+const izquierdaTexto = $("izquierda-texto");
+const centroTexto = $("centro-texto");
+const derechaTexto = $("derecha-texto");
+const colorFuente = $("color-fuente");
+const colorFondo = $("color-fondo");
+const fondoTransparente = $("fondo-transparente");
+const sinContorno = $("ningun-contorno");
+const contornoClaro = $("contorno-claro");
+const contornoOscuro = $("contorno-oscuro");
+const espaciadoText = $("espaciado");
+const interlineadoText = $("interlineado");
 
 textButton.onclick = () => {
   imgSection.classList.add("hidden");
   textSection.classList.remove("hidden");
+  $("aside").style.display = "block";
 };
 
 imgButton.onclick = () => {
   imgSection.classList.remove("hidden");
   textSection.classList.add("hidden");
+  $("aside").style.display = "block";
 };
 
 function darkModeFuncion() {
@@ -54,6 +76,7 @@ function darkModeFuncion() {
   imgHeader.classList.add("invert-image");
   textHeader.classList.add("invert-image");
   desButton.classList.add("invert-image");
+  cerrarButton.classList.add("invert-image");
 }
 darkMode.addEventListener("click", darkModeFuncion);
 
@@ -65,6 +88,7 @@ function ligthModeFuncion() {
   imgHeader.classList.remove("invert-image");
   textHeader.classList.remove("invert-image");
   desButton.classList.remove("invert-image");
+  cerrarButton.classList.remove("invert-image");
 }
 ligthMode.addEventListener("click", ligthModeFuncion);
 
@@ -122,6 +146,123 @@ function reestablecer() {
   cambiarFiltro();
 }
 reestablecerFiltros.addEventListener("click", reestablecer);
+
+function textoSuperior() {
+  topText.textContent = inputTopText.value;
+}
+inputTopText.addEventListener("input", textoSuperior);
+
+function textoInferior() {
+  bottomText.textContent = inputBottomText.value;
+}
+inputBottomText.addEventListener("input", textoInferior);
+
+function sinTextoSuperior() {
+  if (sinTextoSuperiorCheck.checked) {
+    topText.classList.add("hidden");
+  } else {
+    topText.classList.remove("hidden");
+  }
+}
+sinTextoSuperiorCheck.addEventListener("click", sinTextoSuperior);
+
+function sinTextoInferior() {
+  if (sinTextoInferiorCheck.checked) {
+    bottomText.classList.add("hidden");
+  } else {
+    bottomText.classList.remove("hidden");
+  }
+}
+sinTextoInferiorCheck.addEventListener("click", sinTextoInferior);
+
+function cambiarFuente() {
+  topText.style.fontFamily = selectFuente.value;
+  bottomText.style.fontFamily = selectFuente.value;
+}
+selectFuente.addEventListener("change", cambiarFuente);
+
+function cambiarTamañoFuente() {
+  topText.style.fontSize = fuenteSize.value + "px";
+  bottomText.style.fontSize = fuenteSize.value + "px";
+}
+fuenteSize.addEventListener("input", cambiarTamañoFuente);
+
+function alineacionTextoIzquierda() {
+  topText.style.textAlign = "left";
+  bottomText.style.textAlign = "left";
+}
+izquierdaTexto.addEventListener("click", alineacionTextoIzquierda);
+
+function alineacionTextoCentro() {
+  topText.style.textAlign = "center";
+  bottomText.style.textAlign = "center";
+}
+centroTexto.addEventListener("click", alineacionTextoCentro);
+
+function alineacionTextoDerecha() {
+  topText.style.textAlign = "right";
+  bottomText.style.textAlign = "right";
+}
+derechaTexto.addEventListener("click", alineacionTextoDerecha);
+
+function cambiarColorFuente(e) {
+  topText.style.color = e.target.value;
+  bottomText.style.color = e.target.value;
+}
+colorFuente.addEventListener("input", cambiarColorFuente);
+
+function cambiarColorFondo(e) {
+  topText.style.backgroundColor = e.target.value;
+  bottomText.style.backgroundColor = e.target.value;
+}
+colorFondo.addEventListener("input", cambiarColorFondo);
+
+function fondoTransparenteCheck() {
+  if (fondoTransparente.checked) {
+    topText.style.backgroundColor = "transparent";
+    bottomText.style.backgroundColor = "transparent";
+  } else {
+    topText.style.backgroundColor = colorFondo.value;
+    bottomText.style.backgroundColor = colorFondo.value;
+  }
+}
+fondoTransparente.addEventListener("click", fondoTransparenteCheck);
+
+function aplicarSinContorno() {
+  topText.style.webkitTextStrokeWidth = "0px";
+  topText.style.webkitTextStrokeColor = "#FFF";
+  bottomText.style.webkitTextStrokeWidth = "0px";
+  bottomText.style.webkitTextStrokeColor = "#FFF";
+}
+sinContorno.addEventListener("click", aplicarSinContorno);
+
+function aplicarContornoClaro() {
+  topText.style.webkitTextStrokeWidth = "1px";
+  topText.style.webkitTextStrokeColor = "#FFF";
+  bottomText.style.webkitTextStrokeWidth = "1px";
+  bottomText.style.webkitTextStrokeColor = "#FFF";
+}
+contornoClaro.addEventListener("click", aplicarContornoClaro);
+
+function aplicarContornoOscuro() {
+  topText.style.webkitTextStrokeWidth = "1px";
+  topText.style.webkitTextStrokeColor = "#000";
+  bottomText.style.webkitTextStrokeWidth = "1px";
+  bottomText.style.webkitTextStrokeColor = "#000";
+}
+contornoOscuro.addEventListener("click", aplicarContornoOscuro);
+
+function aplicarEspaciado() {
+  topText.style.letterSpacing = espaciadoText.value + "px";
+  bottomText.style.letterSpacing = espaciadoText.value + "px";
+}
+espaciadoText.addEventListener("input", aplicarEspaciado);
+
+function aplicarInterlineado() {
+  topText.style.lineHeight = interlineadoText.value;
+  bottomText.style.lineHeight = interlineadoText.value;
+}
+interlineadoText.addEventListener("input", aplicarInterlineado);
 
 /* DESCARGAR MEME */
 

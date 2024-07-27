@@ -38,6 +38,12 @@ header {
 h1 {
   display: flex;
 }
+h2 {
+  width: 100%;
+  text-align: center;
+  padding: 15px 10px;
+  flex-flow: wrap;
+}
 .div-button-header {
   display: flex;
   flex-flow: row nowrap;
@@ -173,6 +179,25 @@ aside input {
   height: 100%;
   object-fit: cover;
 }
+.contorno {
+  font-size: 12px;
+  display: flex;
+  flex-flow: column wrap;
+}
+.contorno-opciones {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  gap: 4px;
+}
+.boton-contorno {
+  background: var(--dark-color);
+  border: none;
+  border-radius: 4px;
+  padding: 4px;
+  margin-top: 4px;
+  flex: 1;
+}
 .reestablecer {
   background: var(--dark-color);
   border: none;
@@ -190,11 +215,9 @@ aside input {
 }
 
 .meme {
-  margin: 5% 0px;
   display: flex;
   flex-flow: column nowrap;
-  padding: 41px 0px;
-  border-radius: 20px;
+  padding: 0px 10px;
   background: var(--ligth-color);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   width: 650px;
@@ -210,6 +233,7 @@ aside input {
 }
 
 .button-descargar {
+  margin-top: 15px;
   margin-bottom: 5%;
   display: inline-flex;
   padding: 11px 27px;
@@ -228,9 +252,97 @@ aside input {
 ::placeholder {
   color: var(--color);
 }
+.cerrar-button {
+  display: none;
+}
 .invert-image {
   filter: invert(100%);
 }
 .hidden {
   display: none;
+}
+
+@media (max-width: 576px) {
+  aside {
+    height: 100%;
+    width: 100%;
+    display: none;
+  }
+  header {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 12px 0px 12px 0px;
+  }
+
+  h1 {
+    font-size: 16px;
+  }
+  .div-button-header {
+    gap: 24px;
+    height: 18px;
+    margin-top: 7px;
+  }
+
+  .button-header {
+    margin-right: 10px;
+    font-size: 10px;
+  }
+  .button-header img {
+    margin-right: 4px;
+    width: 18px;
+    height: 18px;
+  }
+  main {
+    height: calc(100vh - 80px);
+  }
+  aside h3 {
+    font-size: 15px;
+  }
+
+  aside h4 {
+    font-size: 10px;
+    margin: 7px 0px 0px 0px;
+  }
+
+  aside label {
+    font-size: 10px;
+  }
+
+  aside input {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding: 3px;
+    border-radius: 4px;
+  }
+
+  .select {
+    font-size: 8px;
+    height: 15px;
+  }
+
+  .parrafo {
+    font-size: 10px;
+  }
+  .texto-button {
+    width: 15px;
+    height: 15px;
+  }
+
+  .meme {
+    padding: 20px 0px;
+    border-radius: 8px;
+    width: 350px;
+    height: 60%;
+  }
+
+  .meme-img {
+    margin: 0px 0px;
+  }
+
+  .button-descargar {
+    font-size: 12px;
+  }
+  .cerrar-button {
+    top: 10px;
+    right: 10px;
+  }
 }
