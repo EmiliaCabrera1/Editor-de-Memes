@@ -9,11 +9,11 @@
 
 ## 🛠️ Tecnologías utilizadas
 
-HTML5 para la estructura.
+**HTML5** para la estructura.
 
-CSS3 para el diseño y la personalización visual.
+**CSS3** para el diseño y la personalización visual.
 
-JavaScript para la interactividad y las funcionalidades dinámicas.
+**JavaScript** para la interactividad y las funcionalidades dinámicas.
 
 ## 🎯 Objetivo del Proyecto
 
